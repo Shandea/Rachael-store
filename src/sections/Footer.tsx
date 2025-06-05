@@ -37,7 +37,7 @@ const Footer = () => {
             Privacy
           </Button>
           <Button variant="link" size="sm" onClick={() => window.location.href='/terms'}>
-            Terms!
+            Terms
           </Button>
         </div>
       </div>
