@@ -37,7 +37,7 @@ const HeaderNav = () => {
             <li key={link.name}>
               <a
                 href={link.href}
-                className="text-lg text-gray-500 hover:text-gray-900 focus:text-gray-900 focus:outline-none transition-colors"
+                className="text-lg text-gray-500 hover:text-teal-600 focus:text-gray-900 focus:outline-none transition-colors"
               >
                 {link.name}
               </a>
