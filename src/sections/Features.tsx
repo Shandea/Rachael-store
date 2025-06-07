@@ -69,9 +69,7 @@ const FeatureSection: React.FC = () => {
     } else {
       alert("Please select a color before adding to cart.");
       return;
-    }
-
-  
+    } 
   };
 
   return (

@@ -1,36 +1,39 @@
-import React from "react";
-import  Button  from "../components/ui/Button";
+import Header from "../components/ui/Heading.tsx";
+import Button from "../components/ui/Button.tsx";
+import heroShoes from "../assets/Images/heroShoes.png";
 
-/**
- * Hero section with background banner and call‑to‑action
- * Located at: /sections/Hero.tsx
- * Responsive & accessible; relies on TailwindCSS & a reusable <Button /> component.
- */
-const Hero: React.FC = () => {
+const Hero = () => {
   return (
-    <section
-      role="banner"
-      aria-label="Primary call to action"
-      className="relative flex items-center justify-center min-h-[36rem] lg:min-h-screen bg-center bg-cover text-white"
-      style={{ backgroundImage: "url('/assets/hero-banner.jpg')" }}
+    <div
+      id="hero"
+      className="flex flex-col md:flex-row items-center justify-between w-[95%] mx-auto h-auto min-h-[80vh] py-12 md:gap-4"
     >
-      {/* Overlay for better text contrast */}
-      <span aria-hidden="true" className="absolute inset-0 bg-black/60" />
-
-      <div className="relative z-10 mx-auto max-w-2xl px-6 text-center">
-        <h1 className="text-4xl font-extrabold tracking-tight md:text-6xl lg:text-7xl">
-          Empower Your Workflow
-        </h1>
-        <p className="mt-4 text-lg md:text-xl lg:text-2xl text-gray-200">
-          Build engaging experiences with our intuitive tools & React components.
-        </p>
-        <div className="mt-8 flex justify-center">
-          <Button variant="primary" size="lg" aria-label="Get started">
-            Get Started
+      {/* Left: Text content */}
+      <div className="flex-1 text-center md:text-left">
+        <Header level="h1">Step Into Comfort & Style</Header>
+        <br />
+        <Header level="h4">
+          Discover our new collection of premium shoes designed for both comfort
+          and style. Crafted with the finest materials and attention to detail.
+        </Header>
+        <br />
+        <div className="flex justify-center md:justify-start mt-4 mb-8">
+          <Button className="cursor-pointer">Shop Collection</Button>
+          <Button variant="link" className="cursor-pointer ml-4">
+            Learn More
           </Button>
         </div>
       </div>
-    </section>
+
+      {/* Right: Image */}
+      <div className="flex justify-center md:justify-end flex-1 mt-6 md:mt-0">
+        <img
+          src={heroShoes}
+          alt="Picture of Tennis-Shoes"
+          className="w-full max-w-md md:max-w-4xl h-auto object-contain"
+        />
+      </div>
+    </div>
   );
 };
 

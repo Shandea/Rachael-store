@@ -8,36 +8,36 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
         <div className="flex flex-col items-start w-full md:w-auto">
           <Heading level={4} text="ShoeStyle" className="text-gray-900" />
-          <hr className="my-4 w-full border-gray-700" />
+          <hr className="border-t border-gray-200" />
           <Paragraph variant="small" className="text-gray-700">
             © {new Date().getFullYear()} ShoeStyle. All rights reserved.
           </Paragraph>
         </div>
 
-        <nav className="flex flex-wrap justify-center md:justify-start gap-4 text-sm text-gray-500 text-underlineNone">
-          <Button variant="link" size="sm" onClick={() => window.location.href='/about'}>
+        <nav className="flex flex-wrap justify-center md:justify-start gap-4 text-sm">
+          <Button className='!no-underline text-gray-500' variant="link" size="sm" onClick={() => window.location.href='/about'}>
             About
           </Button>
-          <Button variant="link" size="sm" onClick={() => window.location.href='/products'}>
+          <Button className='!no-underline text-gray-500' variant="link" size="sm" onClick={() => window.location.href='/products'}>
             Products
           </Button>
-          <Button variant="link" size="sm" onClick={() => window.location.href='/contact'}>
+          <Button className='!no-underline text-gray-500' variant="link" size="sm" onClick={() => window.location.href='/contact'}>
             Contact
           </Button>
-          <Button variant="link" size="sm" onClick={() => window.location.href='/support'}>
+          <Button className='!no-underline text-gray-500' variant="link" size="sm" onClick={() => window.location.href='/support'}>
             Support
           </Button>
         </nav>
       </div>
 
       <div className="mt-6 max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center text-sm">
-        <span className='w-full text-gray-500 '></span>
-        <div className="flex gap-4 text-gray-500 text-underlineNone">
-          <Button variant="link" size="sm" onClick={() => window.location.href='/privacy'}>
+        <span></span>
+        <div className="flex gap-4 text-gray-500">
+          <Button className='!no-underline text-gray-500' variant="link" size="sm" onClick={() => window.location.href='/privacy'}>
             Privacy
           </Button>
-          <Button variant="link" size="sm" onClick={() => window.location.href='/terms'}>
-            Terms
+          <Button className='!no-underline text-gray-500' variant="link" size="sm" onClick={() => window.location.href='/terms'}>
+            Terms!
           </Button>
         </div>
       </div>
