@@ -1,28 +1,35 @@
+import React from "react";
 
-import { type ElementType, type FC, type JSX } from 'react';
+export type HeaderLevel = "h1" | "h2" | "h3" | "h4";
 
-interface HeadingProps {
-  text: string;
-  level: 1 | 2 | 3 | 4 | 5 | 6;
+interface HeaderProps extends React.HTMLAttributes<HTMLHeadingElement> {
+  level?: HeaderLevel;
+  children: React.ReactNode;
   className?: string;
 }
 
-const baseStyles: Record<HeadingProps['level'], string> = {
-  1: 'text-4xl font-bold mb-4',
-  2: 'text-3xl font-semibold mb-3',
-  3: 'text-2xl font-medium mb-2.5',
-  4: 'text-xl font-medium mb-2',
-  5: 'text-lg font-normal mb-1.5',
-  6: 'text-base font-normal mb-1',
+const headerStyles: Record<HeaderLevel, string> = {
+  h1: "text-4xl sm:text-5xl font-bold leading-tight text-slate-800",   // 48px desktop / 32px mobile
+  h2: "text-3xl sm:text-4xl font-bold leading-snug text-slate-800",    // 36px / 28px
+  h3: "text-xl sm:text-3xl font-semibold leading-relaxed text-slate-800", // 24px / 20px
+  h4: "text-lg sm:text-xl font-semibold leading-loose text-slate-800",   // 20px / 18px
 };
 
-const Heading: FC<HeadingProps> = ({ text, level, className = '' }) => {
-  const tagName = `h${level}` as keyof JSX.IntrinsicElements;
-  const Tag = tagName as ElementType;
-  const combinedClassName = `${baseStyles[level]} ${className}`.trim();
+const Heading: React.FC<HeaderProps> = ({
+  level = "h1",
+  children,
+  className = "",
+  ...props
+}) => {
+  const Component = level;
+  const baseClasses = headerStyles[level];
+  const combinedClassName = `${baseClasses} ${className}`.trim();
 
-  return <Tag className={combinedClassName}>{text}</Tag>;
+  return (
+    <Component className={combinedClassName} {...props}>
+      {children}
+    </Component>
+  );
 };
-
 
 export default Heading;

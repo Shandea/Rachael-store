@@ -42,7 +42,7 @@ const features: Feature[] = [
     image: shoe4,
     title: "Classic Elegance",
     price: "$159.99",
-    description: "Timeless leather dress shoes for formal occasions.",
+    description: "Timeless leather lace-up dress shoes for formal occasions.",
     colors: ["Black", "Brown", "Burgundy"],
   },
 ];
@@ -75,8 +75,8 @@ const FeatureSection: React.FC = () => {
   return (
     <section id="features" className="bg-gray-200 py-2 px-4 sm:px-8 lg:px-16">
       <div className="text-center mb-10">
-        <Heading level={2}>Our Collection</Heading>
-        <Heading level={3} className="mt-2">
+        <Heading level="h2">Our Collection</Heading>
+        <Heading level="h3" className="mt-2">
           Discover our latest shoes designed for style, comfort and durability.
         </Heading>
       </div>
@@ -95,7 +95,7 @@ const FeatureSection: React.FC = () => {
             />
 
         <div className="flex justify-between items-center w-full mb-2">
-            <Heading level={3}>{feature.title}</Heading>
+            <Heading level="h3">{feature.title}</Heading>
             <span className="text-teal-700 font-bold text-xl">{feature.price}</span>
         </div>
 
@@ -122,12 +122,12 @@ const FeatureSection: React.FC = () => {
     </div>
   </div>
 
-   <div className="h-14" />
+   <div className="h-12" />
 
   <div className="absolute bottom-4 left-0 right-0 flex justify-center">
     <Button
       onClick={() => handleAddToCart(index)}
-      className="w-3/5 rounded cursor-pointer"
+      className="w-4/5 rounded cursor-pointer"
     >
       Add to Cart
     </Button>

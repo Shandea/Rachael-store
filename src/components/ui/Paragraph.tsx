@@ -9,9 +9,9 @@ interface ParagraphProps extends React.HTMLAttributes<HTMLElement> {
 }
 
 const variantStyles: Record<ParagraphVariant, string> = {
-  body: "text-[14px] leading-[1.5] font-normal text-sky-700",
-  small: "text-[12px] leading-[1.5] font-normal text-sky-500",
-  caption: "text-[10px] leading-[1.5] font-normal text-sky-300",
+  body: "text-base leading-[1.5] font-normal text-slate-800",
+  small: "text-sm leading-[1.5] font-normal text-slate-500",
+  caption: "text-xs leading-[1.5] font-normal text-slate-400",
 };
 
 const Paragraph: React.FC<ParagraphProps> = ({

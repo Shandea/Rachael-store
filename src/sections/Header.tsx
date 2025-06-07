@@ -1,93 +1,85 @@
-import { useState } from 'react';
-import Heading from '../components/ui/Heading';
-import Button from '../components/ui/Button';
+import React, { useState } from "react";
+import Button from "../components/ui/Button";
+import { Menu, X } from "lucide-react";
+import Heading from "../components/ui/Heading";
 
-const navLinks = [
-  { name: "About", href: "#hero" },
-  { name: "Product", href: "#features" },
-  { name: "Contact", href: "#footer" },
-];
+const Header: React.FC = () => {
+  const [isOpen, setIsOpen] = useState(false);
 
-const HeaderNav = () => {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const navLinks = [
+    { label: "About", href: "#hero", highlight: false },
+    { label: "Product", href: "#features", highlight: false },
+    { label: "Contact", href: "#footer", highlight: false },
+    { label: "Sign In", href: "#footer", highlight: true },
+  ];
 
   return (
-    <header className="w-full bg-white shadow-sm">
-      <nav
-        className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4"
-        aria-label="Main Navigation"
-      >
-        {/* Logo/Brand */}
-        <a href="/" className="focus:outline-none !no-underline cursor-pointer">
-          <Heading level={1} text="ShoeStyle" className="text-2xl font-bold text-gray-900" />
+    <header className="w-full bg-white border-b border-gray-200 shadow-sm fixed top-0 z-50 font-inter">
+      <div className="w-[95%] mx-auto px-4 py-4 flex items-center">
+        {/* Logo */}
+        <a href="/" className="focus:outline-none focus:ring-2 focus:ring-[#0D9488]">
+          <Heading level="h3" className="text-[#1E293B] text-xl !font-bold">
+          ShoeStyle
+          </Heading>
         </a>
 
-        {/* Hamburger Menu (Mobile) */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-gray-900 focus:outline-none"
-          aria-label="Toggle Menu"
-        >
-          ☰
-        </button>
-
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex items-center space-x-8">
+        <nav className="hidden md:flex items-center space-x-6 ml-auto">
           {navLinks.map((link) => (
-            <li key={link.name}>
-              <a
-                href={link.href}
-                className="text-lg text-gray-500 hover:text-gray-900 focus:text-gray-900 focus:outline-none transition-colors"
-              >
-                {link.name}
-              </a>
-            </li>
-          ))}
-          <li>
-            <a href="#footer">
+            <a
+              key={link.label}
+              href={link.href}
+              className="focus:outline-none focus:ring-2 focus:ring-[#0D9488]"
+            >
               <Button
                 variant="link"
-                className="text-teal-600 hover:text-teal-800 focus:text-teal-800 focus:outline-none transition-colors !no-underline cursor-pointer"
-                size="lg"
+                size="md"
+                className={`text-xl ${
+                  link.highlight ? "text-[#0D9488]" : "text-[#64748B]"
+                } hover:underline hover:text-[#0D9488] cursor-pointer`}
               >
-                Sign In
+                {link.label}
               </Button>
             </a>
-          </li>
-        </ul>
-      </nav>
+          ))}
+        </nav>
 
-      {/* Mobile Navigation Dropdown */}
-      {menuOpen && (
-        <ul className="md:hidden px-6 pb-4 space-y-2 bg-white shadow-md">
-          {navLinks.map((link) => (
-            <li key={link.name}>
+        {/* Hamburger for Mobile */}
+        <button
+          className="md:hidden ml-auto text-[#64748B] focus:outline-none focus:ring-2 focus:ring-[#0D9488]"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label={isOpen ? "Close menu" : "Open menu" }
+        >
+          {isOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isOpen && (
+        <div className="md:hidden bg-white shadow-md px-4 pb-4">
+          <nav className="flex flex-col gap-3">
+            {navLinks.map((link) => (
               <a
+                key={link.label}
                 href={link.href}
-                className="block text-base text-gray-700 hover:text-gray-900 transition"
-                onClick={() => setMenuOpen(false)}
+                className="focus:outline-none focus:ring-2 focus:ring-[#0D9488]"
               >
-                {link.name}
+                <Button
+                  variant="link"
+                  size="sm"
+                  className={`${
+                    link.highlight ? "text-[#0D9488]" : "text-[#64748B]"
+                  } hover:underline hover:text-[#0D9488] text-left w-full`}
+                >
+                  {link.label}
+                </Button>
               </a>
-            </li>
-          ))}
-          <li>
-            <a href="#footer" onClick={() => setMenuOpen(false)}>
-              <Button
-                variant="link"
-                className="text-teal-600 hover:text-teal-800 focus:text-teal-800 focus:outline-none transition-colors !no-underline cursor-pointer w-full text-left"
-                size="lg"
-              >
-                Sign In
-              </Button>
-            </a>
-          </li>
-        </ul>
+            ))}
+          </nav>
+        </div>
       )}
     </header>
   );
 };
 
-export default HeaderNav;
-
-
+export default Header;
