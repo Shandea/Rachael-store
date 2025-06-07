@@ -20,7 +20,11 @@ const Card: React.FC<CardProps> = ({
       {/* Image Section */}
       <div className="bg-gray-100 rounded-lg h-48 flex items-center justify-center mb-4 overflow-hidden">
         {imageUrl ? (
-          <img src={imageUrl} alt={title} className="h-full object-contain" />
+          <img
+            src={imageUrl}
+            alt={title}
+            className="h-full w-full object-cover"
+          />
         ) : (
           <span className="text-gray-400 text-sm">No Image</span>
         )}
@@ -40,9 +44,9 @@ const Card: React.FC<CardProps> = ({
         <div className="mb-4">
           <span className="text-sm text-gray-500">Available Colors:</span>
           <div className="flex flex-wrap gap-2 mt-1">
-            {colors.map((color) => (
+            {colors.map((color, index) => (
               <span
-                key={color}
+                key={`${title}-color-${index}`}
                 className="bg-gray-200 text-gray-700 rounded-full px-3 py-1 text-xs"
               >
                 {color}
@@ -53,7 +57,10 @@ const Card: React.FC<CardProps> = ({
       )}
 
       {/* Add to Cart Button */}
-      <button className="w-full bg-teal-500 hover:bg-teal-600 text-white font-semibold py-2 rounded-lg transition-colors">
+      <button
+        className="w-full bg-teal-500 hover:bg-teal-600 text-white font-semibold py-2 rounded-lg transition-colors"
+        aria-label={`Add ${title} to cart`}
+      >
         Add to Cart
       </button>
     </div>

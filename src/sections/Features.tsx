@@ -77,64 +77,69 @@ const FeatureSection: React.FC = () => {
   return (
     <section id="features" className="bg-gray-200 py-2 px-4 sm:px-8 lg:px-16">
       <div className="text-center mb-10">
-        <Heading level={2}>Our Collection</Heading>
-        <Heading level={3} className="mt-2">
-          Discover our latest shoes designed for style, comfort and durability.
-        </Heading>
+        <Heading level={2} text="Our Collection" />
+        <Heading
+          level={3}
+          className="mt-2"
+          text="Discover our latest shoes designed for style, comfort and durability."
+        />
       </div>
       
       <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4 w-[98%] mx-auto mb-16">
         {features.map((feature, index) => (
-        <Card
-            key={index}
-            title=""
-            className="relative p-6 bg-white rounded-lg shadow-md flex flex-col h-full"
->
+<Card
+    key={index}
+    title=""
+    className="relative p-6 bg-white rounded-lg shadow-md flex flex-col h-full"
+    content={
+        <>
             <img
                 src={feature.image}
                 alt={feature.title}
                 className="w-full h-[400px] object-contain mb-4"
             />
 
-        <div className="flex justify-between items-center w-full mb-2">
-            <Heading level={3}>{feature.title}</Heading>
-            <span className="text-teal-700 font-bold text-xl">{feature.price}</span>
-        </div>
+            <div className="flex justify-between items-center w-full mb-2">
+                <Heading level={3} text={feature.title} />
+                <span className="text-teal-700 font-bold text-xl">{feature.price}</span>
+            </div>
 
-        <Paragraph className="text-md text-gray-600 mb-3">{feature.description}</Paragraph>
+            <Paragraph className="text-md text-gray-600 mb-3">{feature.description}</Paragraph>
 
-        <div className="items-center w-full mb-4">
-            <Paragraph className="text-sm font-medium text-gray-700 mb-1">Available Colors:</Paragraph>
-        <div className="flex flex-wrap gap-2">
-            {feature.colors.map((color, idx) => (
-                <span
-          key={idx}
-          role="button"
-          aria-label={`Select ${color} for ${feature.title}`}
-          onClick={() => handleColorSelect(index, color)}
-          className={`text-xs font-semibold px-2 py-1 rounded-full cursor-pointer transition ${
-            selectedColors[index] === color
-              ? "bg-teal-700 text-white"
-              : "bg-gray-200 text-gray-700"
-          }`}
-        >
-          {color}
-        </span>
-      ))}
-    </div>
-  </div>
+            <div className="items-center w-full mb-4">
+                <Paragraph className="text-sm font-medium text-gray-700 mb-1">Available Colors:</Paragraph>
+                <div className="flex flex-wrap gap-2">
+                    {feature.colors.map((color, idx) => (
+                        <span
+                            key={idx}
+                            role="button"
+                            aria-label={`Select ${color} for ${feature.title}`}
+                            onClick={() => handleColorSelect(index, color)}
+                            className={`text-xs font-semibold px-2 py-1 rounded-full cursor-pointer transition ${
+                                selectedColors[index] === color
+                                    ? "bg-teal-700 text-white"
+                                    : "bg-gray-200 text-gray-700"
+                            }`}
+                        >
+                            {color}
+                        </span>
+                    ))}
+                </div>
+            </div>
 
-   <div className="h-14" />
+            <div className="h-14" />
 
-  <div className="absolute bottom-4 left-0 right-0 flex justify-center">
-    <Button
-      onClick={() => handleAddToCart(index)}
-      className="w-3/5 rounded cursor-pointer"
-    >
-      Add to Cart
-    </Button>
-  </div>
-</Card>
+            <div className="absolute bottom-4 left-0 right-0 flex justify-center">
+                <Button
+                    onClick={() => handleAddToCart(index)}
+                    className="w-3/5 rounded cursor-pointer"
+                >
+                    Add to Cart
+                </Button>
+            </div>
+        </>
+    }
+/>
 
         ))}
       </div>
