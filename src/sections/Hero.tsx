@@ -10,16 +10,16 @@ const Hero = () => {
     >
       {/* Left: Text content */}
       <div className="flex-1 text-center md:text-left">
-        <Header level="h1">Step Into Comfort & Style</Header>
+        <Header level={1}">Step Into Comfort & Style</Header>
         <br />
-        <Header level="h4">
+        <Header level={4}>
           Discover our new collection of premium shoes designed for both comfort
           and style. Crafted with the finest materials and attention to detail.
         </Header>
         <br />
         <div className="flex justify-center md:justify-start mt-4 mb-8">
           <Button className="cursor-pointer">Shop Collection</Button>
-          <Button variant="link" className="cursor-pointer ml-4">
+          <Button variant="link" className="cursor-pointer ml-4 !no-underline">
             Learn More
           </Button>
         </div>
