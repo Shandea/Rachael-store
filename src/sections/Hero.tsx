@@ -10,7 +10,7 @@ const Hero = () => {
     >
       {/* Left: Text content */}
       <div className="flex-1 text-center md:text-left">
-        <Header level={1}">Step Into Comfort & Style</Header>
+        <Header level={1}>Step Into Comfort & Style</Header>
         <br />
         <Header level={4}>
           Discover our new collection of premium shoes designed for both comfort

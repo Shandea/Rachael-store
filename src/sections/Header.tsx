@@ -19,7 +19,7 @@ const HeaderNav = () => {
       >
         {/* Logo/Brand */}
         <a href="/" className="focus:outline-none !no-underline cursor-pointer">
-          <Heading level={1} text="ShoeStyle" className="text-2xl font-bold text-gray-900" />
+          <Heading level={1} className="text-2xl font-bold text-gray-900">Shoe Style</Heading>
         </a>
 
         {/* Hamburger Menu (Mobile) */}

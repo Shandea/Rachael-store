@@ -7,7 +7,7 @@ const Footer = () => {
     <footer id='footer' className="bg-gray-50 text-gray-700 px-6 py-10 border-t w-full mt-auto">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center md:items-start gap-8">
         <div className="flex flex-col items-start w-full md:w-auto">
-          <Heading level={4} text="ShoeStyle" className="text-gray-900" />
+          <Heading level={4} className="text-gray-900">ShoeStyle</Heading>
           <hr className="border-t border-gray-200" />
           <Paragraph variant="small" className="text-gray-700">
             © {new Date().getFullYear()} ShoeStyle. All rights reserved.
