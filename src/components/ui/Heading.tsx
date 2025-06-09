@@ -2,9 +2,10 @@
 import { type ElementType, type FC, type JSX } from 'react';
 
 interface HeadingProps {
-  text: string;
+  
   level: 1 | 2 | 3 | 4 | 5 | 6;
   className?: string;
+  children: React.ReactNode;
 }
 
 const baseStyles: Record<HeadingProps['level'], string> = {
@@ -16,12 +17,12 @@ const baseStyles: Record<HeadingProps['level'], string> = {
   6: 'text-base font-normal mb-1',
 };
 
-const Heading: FC<HeadingProps> = ({ text, level, className = '' }) => {
+const Heading: FC<HeadingProps> = ({ level, className = '', children }) => {
   const tagName = `h${level}` as keyof JSX.IntrinsicElements;
   const Tag = tagName as ElementType;
   const combinedClassName = `${baseStyles[level]} ${className}`.trim();
 
-  return <Tag className={combinedClassName}>{text}</Tag>;
+  return <Tag className={combinedClassName}>{children}</Tag>;
 };
 
 
