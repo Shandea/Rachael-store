@@ -12,7 +12,7 @@ const HeaderNav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="w-full bg-white shadow-sm">
+    <header className="w-full bg-white border-b border-gray-200 shadow-sm fixed top-0 z-50 font-inter">
       <nav
         className="max-w-7xl mx-auto flex items-center justify-between px-6 py-4"
         aria-label="Main Navigation"
@@ -37,7 +37,7 @@ const HeaderNav = () => {
             <li key={link.name}>
               <a
                 href={link.href}
-                className="text-lg text-gray-500 hover:text-gray-900 focus:text-gray-900 focus:outline-none transition-colors"
+                className="text-lg text-gray-500 hover:text-teal-600 focus:text-gray-900 focus:outline-none transition-colors"
               >
                 {link.name}
               </a>
